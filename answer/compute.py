@@ -203,7 +203,6 @@ def tokenize(document):
             words.append(word)
 
     return words
-    # raise NotImplementedError
 
 
 def compute_idfs(documents):
@@ -234,7 +233,6 @@ def compute_idfs(documents):
                 words_idf[word] = np.log(total_docs / present_in)
 
     return words_idf
-    # raise NotImplementedError
 
 
 def top_files(query, files, idfs, n):
@@ -263,7 +261,6 @@ def top_files(query, files, idfs, n):
     best_files = [k for k, v in sorted(files_rank.items(), key=operator.itemgetter(1), reverse=True)[:n]]
 
     return best_files
-    # raise NotImplementedError
 
 
 def top_sentences(query, sentences, idfs, n):
@@ -311,8 +308,3 @@ def top_sentences(query, sentences, idfs, n):
                 best_sentences[i], best_sentences[i + 1] = best_sentences[i + 1], best_sentences[i]
 
     return best_sentences
-    # raise NotImplementedError
-
-
-#if __name__ == "__main__":
-#   main()
