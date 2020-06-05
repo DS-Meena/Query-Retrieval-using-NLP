@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', quesv.emp, name='emp'),   # for Just Views
     path('', ansv.index, name='index'),
+    path('re_direct', ansv.re_direct, name='re_direct'),
     # path('', ansv.curr_output, name='curr_output'),
     # path('hello/', views.hello),
 ]
