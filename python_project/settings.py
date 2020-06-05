@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'questions',
     'answer',
 ]
 
@@ -57,8 +56,7 @@ ROOT_URLCONF = 'python_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.join(BASE_DIR, 'questions'), 'frontEnd'),
-                 os.path.join(os.path.join(BASE_DIR, 'answer'), 'template')],
+        'DIRS': [os.path.join(os.path.join(BASE_DIR, 'answer'), 'template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
