@@ -23,17 +23,21 @@
         <div class="inner">
           <h1 class="masthead-brand">Answer s</h1>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link" href="www.linkedin.com/in/d-s-m">Support</a>
-            <a class="nav-link" href="www.linkedin.com/in/d-s-m">Contact</a>
+            <a class="nav-link" href="re_direct">Support</a>
+            <a class="nav-link" href="re_direct">Contact</a>
           </nav>
         </div>
       </header>
 
       <main role="main" class="inner cover">
         <h2 class="cover-heading">Search your question</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            <h4>or just <button class="btn btn-secondary" name="speak" type="submit" value="speak">click & Ask</button></h4>
+        </form>
         <p class="lead">This is question-answering web app.
             It finds the most appropriate sentence from documents.
-            No of Documents to search from depends on your server.
+            No of Documents to search from depends on Database size.
             currently available topics are AI, ML, NLP, Python, Probability, Neural Network.
             We can add more.
         </p>
@@ -41,7 +45,8 @@
         {% csrf_token %}
             eg. what are the types of supervised learning?
             {{ form.as_p }}
-        <button class="btn btn-primary" type="submit" value="Submit">Submit</button> {% if ans != None %}
+        <button class="btn btn-primary" name="submit" type="submit" value="Submit">Search</button>
+        {% if ans != None %}
         <h4>{{ ans }}</h4>
         {% endif %}
         </form>
@@ -49,7 +54,7 @@
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
-          <p>Created for searchers by <a href="www.linkedin.com/in/d-s-m">DSM</a>.</p>
+          <p>Created for searchers by <a href="re_direct">DSM</a>.</p>
         </div>
       </footer>
     </div>

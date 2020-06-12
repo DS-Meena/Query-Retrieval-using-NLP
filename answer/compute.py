@@ -81,7 +81,7 @@ def main(ques):
     # query or the question
     query = set(tokenize(ques))
 
-    if len(query) == 0:
+    if len(query) == 0:                    # IF all words are stop words
         return "PLEASE , ADD A QUESTION WITH CONTENT WORDS"
 
     """
@@ -97,6 +97,9 @@ def main(ques):
 
     # Determine top file matches according to TF-IDF
     filenames = top_files(query, file_words, file_idfs, n=FILE_MATCHES)
+
+    if not bool(filenames):                      # OUT OF FILE CONTENT WORDS
+        return "SORRY, NO DATA AVAILABLE"
 
     # Extract sentences from top files
     sentences = dict()
@@ -249,6 +252,7 @@ def top_files(query, files, idfs, n):
 
     for file in files:  # for each file calc file score
         file_score = 0
+        content_words = 0
         # for each word in query
         for word in query:
             # if enter wrong spelling
@@ -256,6 +260,10 @@ def top_files(query, files, idfs, n):
                 TF = files[file].count(word)
                 idf = idfs[word]
                 file_score += TF * idf
+                content_words += 1
+        if content_words == 0:     # for THE CASE IF ENTER NO CONTENT WORD
+                wrong = dict()
+                return wrong       # return empty dict
 
         files_rank[file] = file_score
 
