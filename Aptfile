@@ -1,4 +1,5 @@
 portaudio19-dev
 python-all-dev
+libasound2
 python-pyaudio
 python3-pyaudio
