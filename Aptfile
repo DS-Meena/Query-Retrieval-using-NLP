@@ -1,5 +1,2 @@
 portaudio19-dev
 python-all-dev
-libasound2
-alsa-utils
-alsa-oss
