@@ -2,5 +2,13 @@ portaudio19-dev
 python-all-dev
 libasound2
 alsa
-python-pyaudio
-python3-pyaudio
+libasound2-plugins
+alsa-utils
+libasound2-doc
+jackd1 
+portaudio19-doc
+apmd
+alsa-oss
+oss-compat
+libfftw3-bin
+libfftw3-dev
