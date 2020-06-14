@@ -1,5 +1,4 @@
 portaudio19-dev
 python-all-dev
-audio-playback
-browser-support
+libasound2
 pulseaudio
