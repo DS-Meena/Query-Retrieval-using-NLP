@@ -1,0 +1,31 @@
+name: answer
+version: git
+summary: answer
+description: |
+  Questions answering app
+confinement: devmode
+base: core18
+
+parts:
+  offlineimap:
+    plugin: python
+    python-version: python3
+    source: .
+    stage-packages:
+      - python-six
+
+apps:
+  answer:
+    command: manage.py
+    plugs:
+      - audio-playback
+      - desktop
+      - desktop-legacy
+      - home
+      - x11
+      - unity7
+      - browser-support
+      - network
+      - gsettings
+      - pulseaudio
+      - opengl
