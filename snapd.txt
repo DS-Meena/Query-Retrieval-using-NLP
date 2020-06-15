@@ -1,0 +1,11 @@
+audio-playback
+desktop
+desktop-legacy
+home
+x11
+unity7
+browser-support
+network
+gsettings
+pulseaudio
+opengl
