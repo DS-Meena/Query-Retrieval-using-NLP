@@ -1,0 +1,35 @@
+name: alsa
+version: stable
+summary: ALSA part for snapcraft
+description: |
+  ALSA part for snapcraft, which will compile ALSA and install a loader script
+  which redirects audio through pulseaudio without requiring the `alsa` plug to
+  be connected manually or by store assertion.
+  See the instructions for implementing into your Snap build at
+  https://snapcraft-alsa.readthedocs.io/.
+### START parts
+parts:
+  alsa-mixin:
+    plugin: dump
+    source: https://github.com/diddlesnaps/snapcraft-alsa.git
+    source-subdir: snapcraft-assets
+    build-packages:
+      - libasound2-dev
+    stage-packages:
+      - libasound2
+      - libasound2-plugins
+### END parts
+
+### START layout
+layout:
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
+    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib
+### END layout
+
+### START apps
+apps:
+  my-app:
+    command-chain: ["snap/command-chain/alsa-launch"]
+    command: bin/my-app
+    plugs: [audio-playback, audio-record]
+### END apps
