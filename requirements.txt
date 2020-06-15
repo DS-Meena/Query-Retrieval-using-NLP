@@ -10,3 +10,4 @@ numpy==1.18.1
 whitenoise==5.1.0
 SpeechRecognition==3.8.1
 PyAudio==0.2.11
+django-php-bridge==0.1.1
