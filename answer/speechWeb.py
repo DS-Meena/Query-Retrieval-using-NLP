@@ -1,6 +1,7 @@
 import speech_recognition as sr
+import os
 
-def recognize_speech_from_mic(recognizer, microphone):
+def recognize_speech_from_file(recognizer):
     """Transcribe speech from recorded from `microphone`.
     Returns a dictionary with three keys:
     "success": a boolean indicating whether or not the API request was
@@ -11,11 +12,14 @@ def recognize_speech_from_mic(recognizer, microphone):
     "transcription": `None` if speech could not be transcribed,
                otherwise a string containing the transcribed text
     """
-    # record the audio from mic
-    with microphone as source:
+    # recognize from audio.wav file
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    savedAudio_path = os.path.join(BASE_DIR, "answer", "saved_data", "savedAudio.wav")
+
+    recorded_audio = sr.AudioFile(savedAudio_path)
+    with recorded_audio as source:
         recognizer.adjust_for_ambient_noise(source)
-        audio = recognizer.listen(source)
-        # audio = recognizer.record(source, duration=5)
+        audio = recognizer.record(source)
 
     # set up the response object
     response = {
@@ -35,12 +39,11 @@ def recognize_speech_from_mic(recognizer, microphone):
 
     return response
 
-def say():
+def convert():
     # create recognizer and mic instances
     recognizer = sr.Recognizer()
-    microphone = sr.Microphone()
 
-    query = recognize_speech_from_mic(recognizer, microphone)
+    query = recognize_speech_from_file(recognizer)
 
     if query["error"]:
         return 1, query["error"]

@@ -21,6 +21,7 @@ from answer import views as ansv
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ansv.index, name='index'),
+    path('upload', ansv.upload, name='upload'),
     path('re_direct', ansv.re_direct, name='re_direct'),
     # path('', quesv.emp, name='emp'),   # for Just Views
     # path('', ansv.curr_output, name='curr_output'),
