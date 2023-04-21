@@ -4,7 +4,7 @@ Django>=3.0.7
 django-heroku==0.3.1
 gunicorn==20.0.4
 pytz==2019.3
-sqlparse==0.3.0
+sqlparse==0.4.4
 nltk==3.5
 numpy==1.18.1
 whitenoise==5.1.0
